@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DreamBuild Homes</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; }
+    header { background: url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat; height: 100vh; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+    header h1 { font-size: 3rem; margin-bottom: 10px; text-shadow: 2px 2px 5px rgba(0,0,0,0.7); }
+    header p { font-size: 1.2rem; margin-bottom: 20px; text-shadow: 1px 1px 4px rgba(0,0,0,0.6); }
+    .btn { background: #fbbf24; padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; font-size: 1rem; font-weight: bold; }
+    .btn:hover { background: #fcd34d; }
+    section { padding: 60px 20px; max-width: 1100px; margin: auto; }
+    h2 { text-align: center; margin-bottom: 30px; font-size: 2rem; }
+    .about p { text-align: center; font-size: 1.1rem; }
+    .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .service { background: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.2s; }
+    .service:hover { transform: translateY(-5px); }
+    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .project { background: #ddd; height: 200px; border-radius: 10px; display: flex; justify-content: center; align-items: center; font-size: 1.2rem; font-weight: bold; }
+    .contact form { display: grid; gap: 15px; max-width: 600px; margin: auto; }
+    .contact input, .contact textarea { padding: 12px; border-radius: 5px; border: 1px solid #ccc; font-size: 1rem; }
+    .contact button { background: #fbbf24; border: none; padding: 12px; border-radius: 5px; font-weight: bold; cursor: pointer; }
+    .contact button:hover { background: #fcd34d; }
+    footer { background: #111; color: #aaa; text-align: center; padding: 20px; }
+  </style>
+</head>
+<body>
+  <!-- Hero -->
+  <header>
+    <h1>DreamBuild Homes</h1>
+    <p>We build your future, one home at a time.</p>
+    <button class="btn" onclick="scrollToSection('contact')">Get a Free Quote</button>
+  </header>
+
+  <!-- About -->
+  <section class="about">
+    <h2>About Us</h2>
+    <p>
+      At DreamBuild Homes, we specialize in custom home construction, urban planning, 
+      and architectural design. With 10+ years of experience, we deliver modern, 
+      sustainable, and affordable housing solutions tailored to our clients.
+    </p>
+  </section>
+
+  <!-- Services -->
+  <section>
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="service">
+        <h3>Home Construction</h3>
+        <p>From concept to completion, we build quality homes that last a lifetime.</p>
+      </div>
+      <div class="service">
+        <h3>Planning & Design</h3>
+        <p>Smart, efficient, and modern layouts that fit your lifestyle.</p>
+      </div>
+      <div class="service">
+        <h3>Renovations</h3>
+        <p>Transform and upgrade your current space with our renovation experts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section>
+    <h2>Our Projects</h2>
+    <div class="projects">
+      <div class="project">Modern Villa</div>
+      <div class="project">Urban Apartments</div>
+      <div class="project">Luxury Bungalow</div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form onsubmit="sendMessage(event)">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© <span id="year"></span> DreamBuild Homes. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Scroll to section
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Contact form demo handler
+    function sendMessage(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      alert(`Thank you, ${name}! Your message has been received.`);
+      e.target.reset();
+    }
+
+    // Dynamic year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
